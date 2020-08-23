@@ -1,0 +1,908 @@
+         .r .button,
+         .r .small_button,
+         .r .__page,
+         .r input,
+         .r select,
+         .r textarea {
+         -webkit-font-smoothing: subpixel-antialiased;
+         font-family: -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Segoe WP, Helvetica Neue, Lucida Grande, Verdana, Tahoma, Arial, sans-serif!important
+         }
+         .r .basis {
+         min-width: 180px
+         }
+         .button,
+         .small_button,
+         body,
+         input,
+         select,
+         textarea {
+         font-family: Lucida Grande, Verdana, Tahoma, Arial, Sans-Serif, Lucida Sans;
+         font-size: medium
+         }
+         .button,
+         .small_button,
+         body,
+         dd,
+         dl,
+         dt,
+         form,
+         h1,
+         h2,
+         h4,
+         h5,
+         input,
+         select,
+         textarea,
+         ul {
+         margin: 0;
+         padding: 0
+         }
+         html {
+         height: 100%
+         }
+         body {
+         -ms-text-size-adjust: 100%;
+         -moz-text-size-adjust: 100%;
+         -webkit-text-size-adjust: 100%;
+         text-size-adjust: 100%;
+         min-height: 100%;
+         background: #f2f3f5;
+         font-size: 14px
+         }
+         .button,
+         .datefield,
+         .small_button,
+         .textfield,
+         .timefield,
+         select {
+         outline: none;
+         -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+         border-radius: 0;
+         -moz-box-shadow: none;
+         -webkit-box-shadow: none;
+         box-shadow: none
+         }
+         .textfield,
+         .button,
+         .small_button {
+         -webkit-appearance: none;
+         background: #fff
+         }
+         input::-webkit-input-placeholder {
+         color: #818c99
+         }
+         input::placeholder {
+         color: #818c99
+         }
+         img {
+         border: 0
+         }
+         a {
+         color: #4986cc;
+         text-decoration: none;
+         cursor: pointer
+         }
+         .mcont {
+         background-color: #f2f3f5
+         }
+         .selector,
+         .textfield,
+         .datefield,
+         .timefield,
+         select {
+         vertical-align: top;
+         width: 100%;
+         min-width: 30px;
+         background: #f2f3f5;
+         border: 1px solid rgba(0, 0, 0, .15);
+         color: #000;
+         -webkit-border-radius: 10px;
+         -moz-border-radius: 10px;
+         border-radius: 10px;
+         font-size: 16px;
+         line-height: 20px;
+         padding: 11px 12px;
+         margin: 0;
+         resize: vertical;
+         -webkit-transition: border 0.2s;
+         -moz-transition: border 0.2s;
+         -o-transition: border 0.2s;
+         transition: border 0.2s;
+         -webkit-appearance: none;
+         -moz-appearance: none
+         }
+         .selector,
+         .textfield {
+         -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+         box-sizing: border-box
+         }
+         .textfield::-webkit-input-placeholder {
+         color: #818c99
+         }
+         .button,
+         ._btn,
+         .small_button,
+         .small__btn {
+         display: inline-block;
+         background: none;
+         border: none
+         }
+         .button {
+         text-align: center;
+         cursor: pointer;
+         font-size: 15px;
+         font-weight: 500;
+         -webkit-font-smoothing: subpixel-antialiased;
+         -moz-osx-font-smoothing: auto;
+         line-height: 16px;
+         padding: 10px 16px;
+         -webkit-border-radius: 10px;
+         -moz-border-radius: 10px;
+         border-radius: 10px;
+         color: #fff;
+         background-color: #4986cc
+         }
+         ._btn {
+         margin: 6px 10px;
+         position: relative
+         }
+         .wide_button {
+         display: block;
+         text-align: center;
+         padding-left: 3px!important;
+         padding-right: 3px!important
+         }
+         button.wide_button,
+         input.wide_button {
+         width: 100%
+         }
+         .form_item {
+         padding: 0 7px 10px;
+         border-bottom: 1px solid #f5f5f5
+         }
+         .form_item:last-child {
+         border-bottom: 0
+         }
+         .fi_row,
+         .fi_subrow {
+         padding: 14px 0 0;
+         word-wrap: break-word
+         }
+         .fi_row:first-child,
+         .fi_subrow:first-child {
+         padding: 4px 0 0
+         }
+         .fi_header_light {
+         color: #818c99
+         }
+         .fi_row_new {
+         padding: 14px 0 0
+         }
+         .form_item .textfield {
+         -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+         box-sizing: border-box
+         }
+         ._box.new_form {
+         font-size: 15px
+         }
+         ._box.new_form .fi_row {
+         padding: 10px 0 0
+         }
+         ._box.new_form .fi_row_new {
+         padding: 16px 0 0
+         }
+         ._box.new_form ._btn {
+         margin: 6px 0
+         }
+         ._box.new_form .fi_field_links,
+         ._box.new_form ._btn {
+         font-size: 15px!important
+         }
+         ._box.new_form .form_item {
+         padding: 0 12px 12px
+         }
+         ._box.new_form .button {
+         width: 100%
+         }
+         ._box.new_form .button.success {
+         background-color: #4bb34b
+         }
+         .mhead {
+         background: #5181b8;
+         color: #fff;
+         overflow: hidden;
+         zoom: 1;
+         position: relative;
+         z-index: 1;
+         line-height: 1.5em
+         }
+         .hb_wrap {
+         padding-bottom: 1px;
+         overflow: hidden;
+         text-align: center;
+         vertical-align: middle;
+         white-space: nowrap;
+         display: block;
+         color: #fff;
+         -webkit-tap-highlight-color: rgba(0, 0, 0, 0.00)
+         }
+         .n .hb_wrap {
+         padding-bottom: inherit;
+         overflow: hidden
+         }
+         .hb_btn {
+         padding: 8px 0
+         }
+         ._header {
+         font-size: medium;
+         -o-text-overflow: ellipsis;
+         text-overflow: ellipsis
+         }
+         ._header,
+         ._back {
+         overflow: hidden;
+         zoom: 1
+         }
+         ._logo {
+         text-align: left;
+         padding-left: 9px;
+         padding-right: 5px;
+         border-width: 0 0 1px;
+         overflow: hidden;
+         zoom: 1
+         }
+         ._logo {
+         background: url(/images/mobile/s_logo.png?1) no-repeat 0
+         }
+         .n ._logo {
+         background: none
+         }
+         .n ._logo:after {
+         content: "";
+         position: absolute;
+         left: 0;
+         top: 11px;
+         right: 0;
+         margin: auto
+         }
+         .h ._logo ._header,
+         ._logo ._header {
+         display: none
+         }
+         .owner_panel {
+         display: block;
+         overflow: hidden
+         }
+         .op_img,
+         .pp_img,
+         .op_iwrap,
+         .pp_iwrap,
+         ._img {
+         float: left;
+         margin: 0 12px 0 0;
+         background-color: #f2f3f5
+         }
+         .op_img,
+         .pp_img,
+         .op_iwrap,
+         .pp_iwrap,
+         ._img,
+         .pp_img_icon {
+         width: 80px;
+         height: 80px;
+         -webkit-border-radius: 50%;
+         -moz-border-radius: 50%;
+         border-radius: 50%;
+         overflow: hidden
+         }
+         .op_owner {
+         font-weight: 700;
+         -webkit-font-smoothing: antialiased;
+         -moz-osx-font-smoothing: grayscale;
+         word-wrap: break-word
+         }
+         .op_cont,
+         ._cont {
+         margin-left: 39px;
+         min-height: 34px
+         }
+         .op_info {
+         color: #76787a
+         }
+         #l {
+         position: absolute;
+         margin-right: 36px;
+         display: none
+         }
+         #m {
+         position: relative;
+         left: 0
+         }
+         .basis:before {
+         content: '';
+         position: fixed;
+         top: 0;
+         left: 0;
+         right: 0;
+         height: 1px;
+         z-index: 16777271
+         }
+         ._copts .checkbox+.option_label:before,
+         ._copts .radio+.option_label:before,
+         .audioPage__search .hp_block:first-child .qsearch.qsearch--ajax .row_table_main_column:after,
+         .blog_about_header_logo:after,
+         .BookmarksSearch .hp_block:first-child .qsearch.qsearch--ajax .row_table_main_column:after,
+         .Control__icon:before,
+         .create_post .post__select:after,
+         .faq_cat_item .body_icon:after,
+         .faq_item .faq_title:after,
+         .Friends__fakeSearchIcon:before,
+         .GlobalSearchHeader .i_search,
+         .head_panel:first-child .hp_block:first-child .qsearch.qsearch--ajax .row_table_main_column:after,
+         .m .__page_chatAdd .selected_users_next_button:before,
+         .n .head_search .i_search,
+         .n ._logo:after,
+         .PostActions__togglerIcon,
+         .qsearch_wrap .hp_block:first-child .qsearch.qsearch--ajax .row_table_main_column:after,
+         .r .__page_feed ._header:after,
+         .r .wi_actions_btn .i_icon,
+         .SearchPanel--ajax:after,
+         .svgIcon-base,
+         .topbar_item_hide:after,
+         .__page_publish .radio_items .ri_radio,
+         .__page_redesign .basis #value_link:before {
+         -webkit-background-size: 284px 248px;
+         -moz-background-size: 284px 248px;
+         background-size: 284px 248px;
+         background-image: url('/images/mobile/icons/sprites/base-13e72b6a.svg')
+         }
+         .blog_about_header_logo:after,
+         .n ._logo:after,
+         .svgIcon-base__logo_32 {
+         background-position: -108px -4px;
+         background-repeat: no-repeat;
+         width: 32px;
+         height: 32px
+         }
+         .PageBlock,
+         .audioPlaylist,
+         .pageAttachMoney,
+         .pageMoneyTransfer,
+         .pageAttachMoneyAbout,
+         .__content .al_loading,
+         .StoriesFeedBlock,
+         .StoriesSearchBlock,
+         .new_post_container,
+         .wall_item,
+         .PageBlock .results.type_statuses .wall_item,
+         .__page_mail .basis,
+         .BookmarksItem,
+         .AudioSerp,
+         .AudioShowcase,
+         .FeedItem,
+         .upanel.thumbs_list,
+         .LikesPhotoBlock,
+         .basisDialogs,
+         .recommends_link,
+         .MainMenu__splashScreen,
+         .Pad,
+         .blog_post {
+         background-color: #fff;
+         -webkit-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, .06);
+         -moz-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, .06);
+         box-shadow: 0 4px 12px 0 rgba(0, 0, 0, .06)
+         }
+         .blog_post,
+         .PageBlock {
+         -webkit-box-shadow: none;
+         -moz-box-shadow: none;
+         box-shadow: none
+         }
+         .h .__header,
+         .h .__header,
+         .h .leftMenu__header {
+         height: 48px!important;
+         background: #5181b8
+         }
+         .h .mhead {
+         line-height: 18px
+         }
+         .h .hb_btn {
+         padding-top: 19px!important;
+         padding-bottom: 19px!important
+         }
+         .h ._header {
+         padding-top: 15px!important;
+         padding-bottom: 0!important;
+         margin-left: 0!important;
+         font-size: 17px;
+         font-weight: 500;
+         -webkit-font-smoothing: subpixel-antialiased;
+         -moz-osx-font-smoothing: auto;
+         margin-top: -15px;
+         display: block
+         }
+         .vk .__header ._logo {
+         -webkit-flex-shrink: 0;
+         -ms-flex-negative: 0;
+         flex-shrink: 0;
+         min-width: 31px;
+         padding: 0 9px 0 16px;
+         float: left
+         }
+         ._header:not(#zpv_summary) {
+         height: 48px;
+         line-height: 48px
+         }
+         .vk .__header {
+         display: -webkit-box;
+         display: -webkit-flex;
+         display: -moz-box;
+         display: -ms-flexbox;
+         display: flex
+         }
+         .n .mailHat,
+         .n.groupCover-_animationYes .groupCover__dimmer,
+         .n.h.groupCover-_animationYes .groupCover__dimmer,
+         .n.h .__header,
+         .n.h .__header,
+         .n.h .leftMenu__header {
+         background: #fff
+         }
+         .n.h .__header,
+         .n.h .__header,
+         .n.h .leftMenu__header {
+         height: 56px!important
+         }
+         .n .__header {
+         -webkit-transition: -webkit-transform 0.2s ease;
+         transition: -webkit-transform 0.2s ease;
+         -moz-transition: transform 0.2s ease, -moz-transform 0.2s ease;
+         -o-transition: transform 0.2s ease, -o-transform 0.2s ease;
+         transition: transform 0.2s ease;
+         transition: transform 0.2s ease, -webkit-transform 0.2s ease, -moz-transform 0.2s ease, -o-transform 0.2s ease
+         }
+         .n.h #m ._header {
+         line-height: 24px;
+         font-size: 20px;
+         height: 24px;
+         padding: 16px 12px!important;
+         margin: 0!important;
+         font-weight: 700;
+         -webkit-font-smoothing: antialiased;
+         -moz-osx-font-smoothing: grayscale
+         }
+         .n.h #m ._header {
+         padding: 16px!important
+         }
+         .n .mhead,
+         .n .hb_wrap,
+         .n .Unfold__trigger {
+         color: #000
+         }
+         #au_search_items .service_msg_box+.slim_header,
+         #au_search_items .slim_header,
+         #fr_search_items .Friends__fakeSearch:after,
+         #fr_search_items .importFriendsBlock:after,
+         #id_search_items .inline__item,
+         #id_search_items .inline_item,
+         #id_search_items .simple__item,
+         #id_search_items .simple_item,
+         #lm_search_items .inline__item,
+         #lm_search_items .inline_item,
+         #lm_search_items.m_search_items .inline_item_blank,
+         #lm_search_items .simple__item,
+         #lm_search_items .simple_item,
+         #mcont .items .inline__item,
+         #mcont .items .inline_item,
+         #mcont .items .simple__item,
+         #mcont .items .simple_item,
+         #mcont .pcont .upanel .results .inline_item_blank,
+         #mcont .results .inline__item,
+         #mcont .results .inline_item,
+         #mcont .results .simple__item,
+         #mcont .results .simple_item,
+         #mcont .upanel:not(.FeedUpdates):not(.PhotosPage) .inline__item,
+         #mcont .upanel:not(.FeedUpdates):not(.PhotosPage) .inline_item,
+         #mcont .upanel:not(.FeedUpdates):not(.PhotosPage) .simple__item,
+         #mcont .upanel:not(.FeedUpdates):not(.PhotosPage) .simple_item,
+         #mm_search_items .inline__item,
+         #mm_search_items .inline_item,
+         #mm_search_items.m_search_items .inline_item_blank,
+         #mm_search_items .simple__item,
+         #mm_search_items .simple_item,
+         #psc_search .inline__item,
+         #psc_search .inline_item,
+         #psc_search .simple__item,
+         #psc_search .simple_item,
+         #psm_search_items .inline__item,
+         #psm_search_items .inline_item,
+         #psm_search_items .simple__item,
+         #psm_search_items .simple_item,
+         #psm_selected .inline__item,
+         #psm_selected .inline_item,
+         #psm_selected .simple__item,
+         #psm_selected .simple_item,
+         #publish_items_selected .inline__item,
+         #publish_items_selected .inline_item,
+         #publish_items_selected .simple__item,
+         #publish_items_selected .simple_item,
+         .album_items,
+         .app_item,
+         .apps_feed_item,
+         .ArtistPage__header,
+         .Audio,
+         .audioArtists,
+         .audioPage__count,
+         .audioPage__header,
+         .audioPlaylists,
+         .audioPlaylistsPage,
+         .audioSearch__header,
+         .Blocked__body .login_blocked_reason_text,
+         .Blocked__comment,
+         .Blocked__header,
+         .Bookmarks ._si_container>.OwnerRow,
+         .BookmarksItem.BookmarksItem_compact,
+         .BookmarksItem.BookmarksItem_compact:last-child,
+         .BookmarksItem.BookmarksItem_page,
+         .BookmarksItem.BookmarksItem_page:last-child,
+         .BookmarksItem .mlt_link,
+         .BookmarksItem .mlt_title,
+         .BookmarksItem__newLabel,
+         .BookmarksProduct__subtitle,
+         .BookmarksProduct__title,
+         .BookmarksVideo__title,
+         .Comment,
+         .Comment__showMoreContainer,
+         .cp_attached_post .pi_medias .audio_artist_snippet,
+         .create_post__select,
+         .feedAssistancePromoButton,
+         .feedAssistancePromoButtonInstallApp,
+         .FeedUpdates .post_item:after,
+         .friendRequestsPreview__content,
+         .Friends__requests:after,
+         .GroupsInvite:after,
+         .GroupsNear:after,
+         .im_msg_audiomsg,
+         .LikesPhotoBlock .LikesPhotoBlock__content,
+         .MediaRow,
+         .Menu__itemIcon,
+         .mki_description,
+         .mki_description+.wi_like_wrap,
+         .mv_actions,
+         .mv_details,
+         .new_item_link,
+         .owner_panel,
+         .OwnerPhotoGallery,
+         .PageBlock--separate:after,
+         .PersonalInfo,
+         .pi_medias .articleSnippet__block,
+         .pi_medias .audioPlaylistShortSnippet,
+         .pi_medias .audioPlaylistSnippet__block,
+         .pi_medias .BookmarksStar,
+         .pi_suggest_actions,
+         .pinfo_row,
+         .Post__row,
+         .PostHeader,
+         .PostSign,
+         .PostText,
+         .r .audio_item,
+         .r .audios_block+.slim_header,
+         .r .audios_block .service_msg_box,
+         .r .cp_attached_post .doc_preview_rows,
+         .r .cp_attached_post .medias_link_thumbed.mlt_no_photo,
+         .r .cp_attached_post .medias_row,
+         .r .cp_attached_post .pi_signed,
+         .r .cp_attached_post .pi_text,
+         .r .cp_attached_post .pic_header,
+         .r .cp_attached_post .snippet_type_mask,
+         .r .cp_attached_post .snippet_type_podcast,
+         .r .cp_attached_post .snippet_type_qrurl,
+         .r .cp_attached_post .snippet_type_story,
+         .r .e .doc_preview_rows,
+         .r .e .medias_link_thumbed.mlt_no_photo,
+         .r .e .medias_row,
+         .r .e .pic_header,
+         .r .new_post_container .new_post_link,
+         .r .post_item.comment_item,
+         .r .post_item.post_message_item,
+         .r.r .wall_item .medias_map,
+         .r .vk2017_snippet,
+         .r .wall_item .ads_disclaimer,
+         .r .wall_item .ads_mark,
+         .r .wall_item .doc_preview_rows,
+         .r .wall_item .medias_link_thumbed.mlt_no_photo,
+         .r .wall_item .medias_row,
+         .r .wall_item .pi_signed,
+         .r .wall_item .pi_text,
+         .r .wall_item .pic_header,
+         .r .wall_item .snippet_type_mask,
+         .r .wall_item .snippet_type_podcast,
+         .r .wall_item .snippet_type_qrurl,
+         .r .wall_item .snippet_type_story,
+         .r .wall_item .wi_like_wrap,
+         .r .wall_replies .show_more_wrap,
+         .r .wall_replies .show_next_wrap,
+         .r .wi_body .wi_explain,
+         .r .wi_buttons,
+         .r .wi_buttons+.pi_header,
+         .r .wi_head,
+         .Separator:after,
+         .ShareList__container .inline__item,
+         .ShareList__container .inline_item,
+         .ShareList__container .simple__item,
+         .ShareList__container .simple_item,
+         .slim_header,
+         .Socials,
+         .topbar_cont,
+         .UserProfile__item,
+         .__page_group .basisGroup__main.owner_panel,
+         .__page_group .profile_info_cont .pinfo_row,
+         .__page_newCreateBoard .cp_attached_wrap,
+         .__page_newCreateBoard .cp_edited_by,
+         .__page_newCreatePost .cp_attached_wrap,
+         .__page_newCreatePost .cp_edited_by,
+         .__page_notifications .basisDefault__row:after,
+         .__page_publish .cp_attached_post .BookmarksStar,
+         .__page_publish .head_panel,
+         .wall_item .PostAttachPrometheusLink {
+         margin: 0 12px
+         }
+         #au_search_items .service_msg_box+.slim_header,
+         #au_search_items .slim_header,
+         #fr_search_items .Friends__fakeSearch:after,
+         #fr_search_items .importFriendsBlock:after,
+         #id_search_items .inline__item,
+         #id_search_items .inline_item,
+         #id_search_items .simple__item,
+         #id_search_items .simple_item,
+         #lm_search_items .inline__item,
+         #lm_search_items .inline_item,
+         #lm_search_items.m_search_items .inline_item_blank,
+         #lm_search_items .simple__item,
+         #lm_search_items .simple_item,
+         #mcont .items .inline__item,
+         #mcont .items .inline_item,
+         #mcont .items .simple__item,
+         #mcont .items .simple_item,
+         #mcont .pcont .upanel .results .inline_item_blank,
+         #mcont .results .inline__item,
+         #mcont .results .inline_item,
+         #mcont .results .simple__item,
+         #mcont .results .simple_item,
+         #mcont .upanel:not(.FeedUpdates):not(.PhotosPage) .inline__item,
+         #mcont .upanel:not(.FeedUpdates):not(.PhotosPage) .inline_item,
+         #mcont .upanel:not(.FeedUpdates):not(.PhotosPage) .simple__item,
+         #mcont .upanel:not(.FeedUpdates):not(.PhotosPage) .simple_item,
+         #mm_search_items .inline__item,
+         #mm_search_items .inline_item,
+         #mm_search_items.m_search_items .inline_item_blank,
+         #mm_search_items .simple__item,
+         #mm_search_items .simple_item,
+         #psc_search .inline__item,
+         #psc_search .inline_item,
+         #psc_search .simple__item,
+         #psc_search .simple_item,
+         #psm_search_items .inline__item,
+         #psm_search_items .inline_item,
+         #psm_search_items .simple__item,
+         #psm_search_items .simple_item,
+         #psm_selected .inline__item,
+         #psm_selected .inline_item,
+         #psm_selected .simple__item,
+         #psm_selected .simple_item,
+         #publish_items_selected .inline__item,
+         #publish_items_selected .inline_item,
+         #publish_items_selected .simple__item,
+         #publish_items_selected .simple_item,
+         .album_items,
+         .app_item,
+         .apps_feed_item,
+         .ArtistPage__header,
+         .Audio,
+         .audioArtists,
+         .audioPage__count,
+         .audioPage__header,
+         .audioPlaylists,
+         .audioPlaylistsPage,
+         .audioSearch__header,
+         .Blocked__body .login_blocked_reason_text,
+         .Blocked__comment,
+         .Blocked__header,
+         .Bookmarks ._si_container>.OwnerRow,
+         .BookmarksItem.BookmarksItem_compact,
+         .BookmarksItem.BookmarksItem_compact:last-child,
+         .BookmarksItem.BookmarksItem_page,
+         .BookmarksItem.BookmarksItem_page:last-child,
+         .BookmarksItem .mlt_link,
+         .BookmarksItem .mlt_title,
+         .BookmarksItem__newLabel,
+         .BookmarksProduct__subtitle,
+         .BookmarksProduct__title,
+         .BookmarksVideo__title,
+         .Comment,
+         .Comment__showMoreContainer,
+         .cp_attached_post .pi_medias .audio_artist_snippet,
+         .create_post__select,
+         .feedAssistancePromoButton,
+         .feedAssistancePromoButtonInstallApp,
+         .FeedUpdates .post_item:after,
+         .friendRequestsPreview__content,
+         .Friends__requests:after,
+         .GroupsInvite:after,
+         .GroupsNear:after,
+         .im_msg_audiomsg,
+         .LikesPhotoBlock .LikesPhotoBlock__content,
+         .MediaRow,
+         .Menu__itemIcon,
+         .mki_description,
+         .mki_description+.wi_like_wrap,
+         .mv_actions,
+         .mv_details,
+         .new_item_link,
+         .owner_panel,
+         .OwnerPhotoGallery,
+         .PageBlock--separate:after,
+         .PersonalInfo,
+         .pi_medias .articleSnippet__block,
+         .pi_medias .audioPlaylistShortSnippet,
+         .pi_medias .audioPlaylistSnippet__block,
+         .pi_medias .BookmarksStar,
+         .pi_suggest_actions,
+         .pinfo_row,
+         .Post__row,
+         .PostHeader,
+         .PostSign,
+         .PostText,
+         .r .audio_item,
+         .r .audios_block+.slim_header,
+         .r .audios_block .service_msg_box,
+         .r .cp_attached_post .doc_preview_rows,
+         .r .cp_attached_post .medias_link_thumbed.mlt_no_photo,
+         .r .cp_attached_post .medias_row,
+         .r .cp_attached_post .pi_signed,
+         .r .cp_attached_post .pi_text,
+         .r .cp_attached_post .pic_header,
+         .r .cp_attached_post .snippet_type_mask,
+         .r .cp_attached_post .snippet_type_podcast,
+         .r .cp_attached_post .snippet_type_qrurl,
+         .r .cp_attached_post .snippet_type_story,
+         .r .e .doc_preview_rows,
+         .r .e .medias_link_thumbed.mlt_no_photo,
+         .r .e .medias_row,
+         .r .e .pic_header,
+         .r .new_post_container .new_post_link,
+         .r .post_item.comment_item,
+         .r .post_item.post_message_item,
+         .r.r .wall_item .medias_map,
+         .r .vk2017_snippet,
+         .r .wall_item .ads_disclaimer,
+         .r .wall_item .ads_mark,
+         .r .wall_item .doc_preview_rows,
+         .r .wall_item .medias_link_thumbed.mlt_no_photo,
+         .r .wall_item .medias_row,
+         .r .wall_item .pi_signed,
+         .r .wall_item .pi_text,
+         .r .wall_item .pic_header,
+         .r .wall_item .snippet_type_mask,
+         .r .wall_item .snippet_type_podcast,
+         .r .wall_item .snippet_type_qrurl,
+         .r .wall_item .snippet_type_story,
+         .r .wall_item .wi_like_wrap,
+         .r .wall_replies .show_more_wrap,
+         .r .wall_replies .show_next_wrap,
+         .r .wi_body .wi_explain,
+         .r .wi_buttons,
+         .r .wi_buttons+.pi_header,
+         .r .wi_head,
+         .Separator:after,
+         .ShareList__container .inline__item,
+         .ShareList__container .inline_item,
+         .ShareList__container .simple__item,
+         .ShareList__container .simple_item,
+         .slim_header,
+         .Socials,
+         .topbar_cont,
+         .UserProfile__item,
+         .__page_group .basisGroup__main.owner_panel,
+         .__page_group .profile_info_cont .pinfo_row,
+         .__page_newCreateBoard .cp_attached_wrap,
+         .__page_newCreateBoard .cp_edited_by,
+         .__page_newCreatePost .cp_attached_wrap,
+         .__page_newCreatePost .cp_edited_by,
+         .__page_notifications .basisDefault__row:after,
+         .__page_publish .cp_attached_post .BookmarksStar,
+         .__page_publish .head_panel,
+         .wall_item .PostAttachPrometheusLink {
+         margin: 0 16px
+         }
+         .mhead {
+         z-index: 7
+         }
+         .__header,
+         ._back._back._back._back {
+         overflow: visible!important
+         }
+         ._header:not(#zpv_summary) {
+         min-width: 0;
+         text-align: left
+         }
+         ._box .form_item {
+         padding: 0 12px 16px
+         }
+         ._box .fi_row {
+         padding: 12px 0 0
+         }
+         ._box.new_form .field_error, ._box.new_form .service_msg_error, ._box.new_form .service_msg_warning {
+         border-color: #f2ab99;
+         }
+         ._box .fi_row_new {
+         padding: 20px 0 0
+         }
+         ._box.new_form .service_msg_warning, ._box.new_form .service_msg_error {
+         background-color: #faebeb;
+         }
+         ._box.new_form .field_error, ._box.new_form .service_msg_error, ._box.new_form .service_msg_warning {
+         border-color: #f2ab99;
+         }
+         .fi_row .service_msg_box {
+         border-bottom: none;
+         padding: 0;
+         }
+         .service_msg_box:last-child, .single_wall_item+.service_msg_box, .single_wall_item+a+.service_msg_box {
+         border: 0;
+         }
+         ._box.new_form .fi_row {
+         padding: 10px 0 0;
+         }
+         @media screen and (min-width: 320px)
+         ._box .fi_row {
+         padding: 12px 0 0;
+         }
+         .service_msg_box {
+         padding: 10px 7px;
+         border-bottom: 1px solid #f5f5f5;
+         }
+         ._box.new_form .service_msg {
+         font-size: 14px;
+         line-height: 1.29;
+         padding: 8px 12px 9px;
+         -webkit-border-radius: 4px;
+         -moz-border-radius: 4px;
+         border-radius: 4px;
+         }
+         .service_msg_warning {
+         background-color: #fffbf2;
+         border: 1px solid #ffd54f;
+         }
+         .op_info {
+         padding-top: 4px
+         }
+         ._img {
+         width: 50px;
+         height: 50px;
+         margin: 0 8px 0 0
+         }
+         ._cont {
+         margin-left: 58px;
+         min-height: 50px
+         }
+         ._btn {
+         margin: 8px 12px
+         }
+         .hb_btn {
+         padding: 12px 0
+         }
+         ._logo {
+         padding-left: 9px;
+         padding-right: 9px
+         }
+         ._logo {
+         background-image: url(/images/mobile/logo/logo.png)
+         }
+         #l {
+         margin-right: 44px
+         }
