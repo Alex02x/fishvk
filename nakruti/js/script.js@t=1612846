@@ -1,0 +1,904 @@
+
+
+$(document).ready(function(){
+[].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+img.setAttribute('src', img.getAttribute('data-src'));
+img.onload = function() {
+img.removeAttribute('data-src');
+};
+});
+
+setTimeout(function(){
+	$('img').removeAttr('data-src');
+}, 1500);
+
+
+
+
+	$('.info-nav a').click(function(){
+		var tab_current = $(this).attr('href');
+		var class_current = $(this).attr('data-class');
+		$('.info-nav a').removeClass('active');
+		$(this).addClass('active');
+		$('.info-tab').hide();
+		$(tab_current).fadeIn();
+		$('.info-title').hide();
+		$(class_current).fadeIn();
+		if(screen.width < 768)  {
+			var html_title = $(class_current).html();
+			$('.info-newtitle').remove();
+			$(tab_current).find('.info-info').prepend('<p class="info-newtitle">'+html_title+'</p>');
+		}
+		return false;
+	});
+
+	$('.reviews-slider').slick({
+	  dots: false,
+	  infinite: true,
+	  arrows: true,
+	  appendArrows: '.reviews-nav',
+	  prevArrow: '<button type="button" class="slick-prev"><i></i>Назад</button>',
+	  nextArrow: '<button type="button" class="slick-next">Дальше<i></i></button>',
+	  speed: 300,
+	  focusOnSelect: true,
+	  slidesToShow: 4,
+	  centerMode: true,
+	  variableWidth: true,
+	   responsive: [
+	    {
+	      breakpoint: 768,
+	      settings: {
+	      	slidesToShow: 1,
+	      	dots: true,
+	      	centerMode: false,
+			variableWidth: false
+	      }
+	    }
+	   ]
+	});
+
+	$(function($) {
+	  var allAccordions = $('.desc-faq');
+	  var allAccordionItems = $('.faq-item');
+	  $('.faq-item').click(function() {
+	    if($(this).hasClass('open'))
+	    {
+	      $(this).removeClass('open');
+	      $(this).find('.desc-faq').slideUp(500);
+	    }
+	    else
+	    {
+	    allAccordions.slideUp("fast");
+	    allAccordionItems.removeClass('open');
+	    $(this).addClass('open');
+	     $(this).find('.desc-faq').slideDown(500);
+	    return false;
+	    }
+	  });
+	});
+
+
+
+
+
+
+});
+
+
+
+$(document).ready(function(){
+
+
+    var location = window.location.href;
+    var cur_url = '/' + location.split('/').pop();
+ 
+    $('.main-menu li').each(function () {
+        var link = $(this).find('a').attr('href');
+ 
+        if (cur_url == link)
+        {
+            $(this).addClass('current');
+        }
+    });
+    $('.new-serv-nav li a').each(function () {
+        var location = window.location.href;
+        var link = this.href; 
+        if(location == link) {
+            $(this).addClass('active');
+        }
+    });
+    $('.mobile-menu li').each(function () {
+        var link = $(this).find('a').attr('href');
+ 
+        if (cur_url == link)
+        {
+            $(this).addClass('active');
+        }
+    });
+    $('.dropdown-menu li').each(function () {
+        var link = $(this).find('a').attr('href');
+ 
+        if (cur_url == link)
+        {
+        	$(this).parents('.dropdown').addClass('current');
+            $(this).addClass('current');
+        }
+    });
+
+
+
+});
+
+
+
+/* ---------------------------------------------
+ Contact form
+ --------------------------------------------- */
+$(document).ready(function(){
+    $("#submit_btn").click(function(){
+        
+        //get input field values
+        var user_name = $('input[name=name]').val();
+        var user_email = $('input[name=email]').val();
+        var user_message = $('textarea[name=message]').val();
+        
+        //simple validation at client's end
+        //we simply change border color to red if empty field using .css()
+        var proceed = true;
+        if (user_name == "") {
+            $('input[name=name]').css('border-color', '#e41919');
+            proceed = false;
+        }
+        if (user_email == "") {
+            $('input[name=email]').css('border-color', '#e41919');
+            proceed = false;
+        }
+        
+        if (user_message == "") {
+            $('textarea[name=message]').css('border-color', '#e41919');
+            proceed = false;
+        }
+        
+        //everything looks good! proceed...
+        if (proceed) {
+            //data to be sent to server
+            post_data = {
+                'userName': user_name,
+                'userEmail': user_email,
+                'userMessage': user_message
+            };
+            
+            //Ajax post data to server
+            $.post('contact_me.php', post_data, function(response){
+            
+                //load json data from server and output message     
+                if (response.type == 'error') {
+                    output = '<div class="error">' + response.text + '</div>';
+                }
+                else {
+                
+                    output = '<div class="success">' + response.text + '</div>';
+                    
+                    //reset values in all input fields
+                    $('#contact_form input').val('');
+                    $('#contact_form textarea').val('');
+                }
+                
+                $("#result").hide().html(output).slideDown();
+            }, 'json');
+            
+        }
+        
+        return false;
+    });
+    
+    //reset previously set border colors and hide all message on .keyup()
+    $("#contact_form input, #contact_form textarea").keyup(function(){
+        $("#contact_form input, #contact_form textarea").css('border-color', '');
+        $("#result").slideUp();
+    });
+    
+});
+
+(function($){"use strict";$.ajaxChimp={responses:{"We have sent you a confirmation email":0,"Please enter a value":1,"An email address must contain a single @":2,"The domain portion of the email address is invalid (the portion after the @: )":3,"The username portion of the email address is invalid (the portion before the @: )":4,"This email address looks fake or invalid. Please enter a real email address":5},translations:{en:null},init:function(selector,options){$(selector).ajaxChimp(options)}};$.fn.ajaxChimp=function(options){$(this).each(function(i,elem){var form=$(elem);var email=form.find("input[type=email]");var label=form.find("label[for="+email.attr("id")+"]");var settings=$.extend({url:form.attr("action"),language:"en"},options);var url=settings.url.replace("/post?","/post-json?").concat("&c=?");form.attr("novalidate","true");email.attr("name","EMAIL");form.submit(function(){var msg;function successCallback(resp){if(resp.result==="success"){msg="We have sent you a confirmation email";label.removeClass("error").addClass("valid");email.removeClass("error").addClass("valid")}else{email.removeClass("valid").addClass("error");label.removeClass("valid").addClass("error");var index=-1;try{var parts=resp.msg.split(" - ",2);if(parts[1]===undefined){msg=resp.msg}else{var i=parseInt(parts[0],10);if(i.toString()===parts[0]){index=parts[0];msg=parts[1]}else{index=-1;msg=resp.msg}}}catch(e){index=-1;msg=resp.msg}}if(settings.language!=="en"&&$.ajaxChimp.responses[msg]!==undefined&&$.ajaxChimp.translations&&$.ajaxChimp.translations[settings.language]&&$.ajaxChimp.translations[settings.language][$.ajaxChimp.responses[msg]]){msg=$.ajaxChimp.translations[settings.language][$.ajaxChimp.responses[msg]]}label.html(msg);label.show(2e3);if(settings.callback){settings.callback(resp)}}var data={};var dataArray=form.serializeArray();$.each(dataArray,function(index,item){data[item.name]=item.value});$.ajax({url:url,data:data,success:successCallback,dataType:"jsonp",error:function(resp,text){console.log("mailchimp ajax submit error: "+text)}});var submitMsg="Submitting...";if(settings.language!=="en"&&$.ajaxChimp.translations&&$.ajaxChimp.translations[settings.language]&&$.ajaxChimp.translations[settings.language]["submit"]){submitMsg=$.ajaxChimp.translations[settings.language]["submit"]}label.html(submitMsg).show(2e3);return false})});return this}})(jQuery);
+
+(function ($) {
+    
+    "use strict";
+
+    $('#mailchimp').ajaxChimp({
+        callback: mailchimpCallback,
+        url: "http://bestlooker.us10.list-manage.com/subscribe/post?u=e16312d09b1b43f5c26fc526c&amp;id=195aaab5cb" //Replace this with your own mailchimp post URL. 
+    });
+
+    function mailchimpCallback(resp) {
+        if (resp.result === 'success') {
+            $('#subscribe-result').hide().html('<div class="success">' + resp.msg + '</div>').slideDown().delay(10000).slideUp();
+        }
+        else if (resp.result === 'error') {
+            $('#subscribe-result').hide().html('<div class="error">' + resp.msg + '</div>').slideDown().delay(10000).slideUp();
+        }
+    }
+
+})(jQuery);
+function subscribe(email) {
+	$.ajax({
+		type: "POST",
+		url: "requests.php",
+		data: 'action=subscribe&email='+email,
+		cache: false,
+		beforeSend: function(){
+			$("#result").val('Подписка...');
+		},
+		success: function(data){
+			if(data) {
+				$('#result').html('<div class="text-danger">'+data+'</div>');
+			} else {
+				$('#result').html('<div class="text-success">Вы были успешно зарегистрированы!</div>');
+
+				window.setTimeout(function () {
+					location.href = "dashboard.php";
+				}, 2500);
+			}
+		}
+	});
+}
+
+function TakeFormData(FormID, FormAction, Message, Clear, Timeout, Highlight, Out) {
+	var formData = $(FormID).serialize();
+	var dataString = formData+'&action='+FormAction;
+	var $btn_submit = $(FormID).find('button[type=submit]');
+	var btn_submit_text = $btn_submit.text();
+	
+	Clear = Clear || true;
+	Timeout = Timeout || 0;
+	Highlight = Highlight || false;
+	Out = Out || false;
+
+	if($(FormID+"-result").length === 0) {
+		if(Out == true)
+			$(FormID).parent().after("<div id='"+FormAction+"-result'></div>");
+		else
+			$(FormID).append("<div id='"+FormAction+"-result'></div>");
+	}
+
+	$.ajax({
+		type: "POST",
+		url: "requests.php",
+		data: dataString,
+		cache: false,
+		beforeSend: function(){
+			$('#'+FormAction + '-result').text('Подождите..');
+			$btn_submit.attr("disabled", true).text("Загрузка...");
+		},
+		success: function(data){
+			if(data) {
+				if(Highlight == false) {
+					$('#'+FormAction + '-result').html('<div class="text-danger">'+data+'</div>');
+				} else {
+					$('#'+FormAction + '-result').html('<div class="text-danger"><mark>'+data+'</mark></div>');
+				}
+			} else {
+				if(Highlight == false) {
+					$('#'+FormAction + '-result').html('<div class="text-success">'+Message+'</div>');
+				} else {
+					$('#'+FormAction + '-result').html('<div class="text-success"><mark>'+Message+'</mark></div>');
+				}
+				if(Clear == true) {
+					$(FormID).trigger("reset");
+					$('select').prop('selectedIndex', 0);
+				}
+			}
+
+			if(Timeout != 0) {
+				$('#'+FormAction + '-result').delay(5000).fadeOut(Timeout, function() {
+					this.remove();
+				});
+			}
+
+			if(FormAction == 'new-order') {
+				$("#support").load(location.href + " #support");
+			}
+		},
+		complete: function() {
+			$btn_submit.attr("disabled", false).text(btn_submit_text);
+		}
+	});
+}
+
+
+function login() {
+	TakeFormData('#login', 'login', 'Добро пожаловать.', true, 3000);
+}
+
+function register() {
+	TakeFormData('#register', 'register', 'Ваш аккаунт был успешно создан.', true, 3000);
+}
+
+function restore() {
+	TakeFormData('#restore', 'restore', 'Вам отправлен новый пароль.', true, 3000);
+}
+
+function lock() {
+	TakeFormData('#lock', 'lock', 'Добро пожаловать.', true, 3000, true, true);
+}
+
+function userSupport() {
+	TakeFormData('#user-support', 'user-support', 'Ваше сообщение отправлено.', true, 3000);
+}
+
+function newOrder() {
+	TakeFormData('#new-order', 'new-order', 'Ваш заказ принят.', true, 3000);
+	getBalance();
+}
+
+function updatePassword() {
+	TakeFormData('#update-password', 'update-password', 'Пароль успешно изменен.', true, 3000);
+}
+
+function updateSkype() {
+	TakeFormData('#update-skype', 'update-skype', 'Телефон изменен.', true, 3000);
+}
+
+function updateInstagram() {
+	TakeFormData('#update-instagram', 'update-instagram', 'Instagram изменен.', true, 3000);
+}
+
+
+
+$('#category').on('change', function() {
+	var selected = this.value;
+
+	dataString = 'action=get-services&category-id='+selected;
+	$.ajax({
+		type: "POST",
+		url: "requests.php",
+		data: dataString,
+		cache: false,
+		success: function(data){
+			if(data) {
+				$("#service").html('<option disabled selected>Выберите вид накрутки.</option>');
+				$("#service").append(data);
+			} else {
+				$("#service").html('<option selected="true" style="display:none;">Здесь пока ничего нет.</option>');
+			}
+		}
+	});
+});
+
+function getBalance() {
+	dataString = 'action=get-user-balance';
+	$.ajax({
+		type: "POST",
+		url: "requests.php",
+		data: dataString,
+		cache: false,
+		success: function(data){
+			if(data) {
+				$("#user-balance").html(data);
+				$("#current-balance, #current-balance2, #current-balance3").html(data);
+			}
+		}
+	});
+}
+
+function generateNewAPI() {
+	dataString = 'action=generate-new-api';
+	$.ajax({
+		type: "POST",
+		url: "requests.php",
+		data: dataString,
+		cache: false,
+		beforeSend: function(){
+			$("#user-api").val('Создание нового ключа API..');
+		},
+		success: function(data){
+			if(data) {
+				$("#user-api").val(data);
+			}
+		}
+	});
+}
+
+function selectService(ServiceID) {
+	dataString = 'action=select-service&service-id='+ServiceID;
+	$.ajax({
+		type: "POST",
+		url: "requests.php",
+		data: dataString,
+		cache: false,
+		success: function(data){
+			if(data) {
+				if(data == 'hashtag') {
+					$("#additional").html('<div class="form-group"><div class="form-tip">Хэштег</div><input type="text" name="hashtag" class="input-md round form-control def-text" placeholder="Хэштег" required></div>');
+				} else if(data == 'comments') {
+					$("#additional").html('<div class="form-group"><div class="form-tip">Комментарии</div><textarea name="comments" class="input-md round form-control def-text" style="resize: none;" rows="8" placeholder="Комментарии (по одному в строке)" required></textarea></div>');
+				} else if(data == 'mentions') {
+					$("#additional").html('<div class="form-group"><div class="form-tip">Имя пользователя</div><input type="text" name="mentions_username" class="input-md round form-control def-text" placeholder="Упоминаемый пользователь" required></div>');
+				} else {
+					$("#additional").html('');
+					$("#order_quantity").prop("readonly", false);
+				}
+			} else {
+				$("#additional").html('');
+				$("#order_quantity").prop("readonly", false);
+			}
+		}
+	});
+	
+	var autoModeAllowedForServices = [3,4,5,6,7,8,11,12,14,25,30,31,32,33,36,40,41,43,44,48,49,52,64,66,92,94];
+	var iServiceId = parseInt(ServiceID);
+	var $form = $('form#new-order');
+	if (autoModeAllowedForServices.indexOf(iServiceId) !== -1){
+		$form.find('.form-group[data-name=order-mode]').show();
+	} else {
+		$form.find('.form-group[data-name=order-mode]').find('select[name=mode]').val('link').change();
+		$form.find('.form-group[data-name=order-mode]').hide();
+	}
+	
+}
+
+function reloadService() {
+	$("#service").html('<option disabled checked>Выберите вид накрутки.</option><option style="display:none;">Выберите категорию.</option>');
+	//$("#category").append('<option disabled checked>Выберите категорию.</option><option style="display:none;">Выберите категорию.</option>');
+	$("#sel").remove();
+	$("#category").prepend('<option disabled selected id="sel">Выберите категорию.</option>');
+}
+
+function nullQuantity() {
+	$("#quantity").val(0);
+}
+
+function orderModeUpdated(el, ServiceID){
+	var $form = $(el).parents('form');
+	if ($(el).val()==='auto'){
+		$form.find('.form-group[data-name=link]').find('.form-tip').html('Ссылка на аккаунт');
+		$form.find('.form-group[data-name=link]').find('input[name=link]').attr('placeholder','Ссылка на аккаунт');
+		$form.find('.form-group[data-name=posts-count]').show();
+		$form.find('.form-group[data-name=quantity]').find('.form-tip').html('Количество накрутки на одну');
+		$form.find('.form-group[data-name=quantity]').find('input[name=quantity]').attr('placeholder','Сколько крутить на одну');
+		$form.find('.form-group[data-name=dispersion]').show();
+		$form.find('.form-group[data-name=posts-exists-count]').show();
+	} else {
+		$form.find('.form-group[data-name=link]').find('.form-tip').html('Ссылка');
+		$form.find('.form-group[data-name=link]').find('input[name=link]').attr('placeholder','Ссылка');
+		$form.find('.form-group[data-name=posts-count]').hide();
+		$form.find('.form-group[data-name=quantity]').find('.form-tip').html('Количество');
+		$form.find('.form-group[data-name=quantity]').find('input[name=quantity]').attr('placeholder','Сколько крутить');
+		$form.find('.form-group[data-name=dispersion]').hide();
+		$form.find('.form-group[data-name=posts-exists-count]').hide();
+	}
+	
+	
+}
+
+function removeQuantity() {
+	$("#min_quantity").html("0");
+	$("#max_quantity").html("0");
+	$("#service-description").html("");
+	$("#price, #price2").html("0");
+	$("#order_quantity").val('');
+	$("#order_link").val("");
+	$("#description").fadeOut();
+}
+
+function updateMinQuantity(ServiceID) {
+	dataString = 'action=get-min-quantity&service-id='+ServiceID;
+	$.ajax({
+		type: "POST",
+		url: "requests.php",
+		data: dataString,
+		cache: false,
+		success: function(data){
+			if(data) {
+				$("#min_quantity").html(data);
+			}
+		}
+	});
+}
+
+
+function eAjax(el, action){
+	if ($(el).hasClass('disable')) return false;
+	$(el).addClass('disable');
+	var params = JSON.parse($(el).attr('data-params') || '{}');
+	var data = $.extend(params, {action: action});
+	$.ajax({
+		type: "POST",
+		url: "requests.php",
+		data: data,
+		cache: false,
+		success: function(html){
+			$('#m_service').html(html);
+			$(el).removeClass('disable');
+		}
+	});
+	return false;
+}
+
+function updatePrice(ServiceID, Quantity, PostsCount) {
+	var dataString = 'action=get-price&service-id='+ServiceID+'&quantity='+Quantity+'&postsCount='+PostsCount;
+	if(Quantity > 0) {
+		$.ajax({
+			type: "POST",
+			url: "requests.php",
+			data: dataString,
+			cache: false,
+			success: function(data){
+				if(data) {
+					$("#price, #price2").html(data);
+				}
+			}
+		});
+	} else {
+		$("#price, #price2").html(0);
+	}
+}
+
+function updateMaxQuantity(ServiceID) {
+	dataString = 'action=get-max-quantity&service-id='+ServiceID;
+	$.ajax({
+		type: "POST",
+		url: "requests.php",
+		data: dataString,
+		cache: false,
+		success: function(data){
+			if(data) {
+				$("#max_quantity").html(data);
+			}
+		}
+	});
+}
+
+function updateLinkMaxQuantity(ServiceID, Link) {
+	dataString = 'action=get-link-quantity&service-id='+ServiceID+'&link='+Link;
+	$.ajax({
+		type: "POST",
+		url: "requests.php",
+		data: dataString,
+		cache: false,
+		success: function(data){
+			if(data) {
+				$("#max_quantity").html(data);
+			}
+		}
+	});
+}
+
+function updateDescription(ServiceID) {
+	dataString = 'action=get-description&service-id='+ServiceID;
+	$.ajax({
+		type: "POST",
+		url: "requests.php",
+		data: dataString,
+		cache: false,
+		success: function(data){
+			if(data) {
+			    $("#description").fadeIn();
+				$("#service-description").html(data);
+			}
+		}
+	});
+}
+
+$("#show-order-example").click(function() {
+	if($("#example-create-order").is(':visible')) {
+		$("#show-order-example").html('Показать пример.');
+		$("#example-create-order").hide( "slow" );
+	} else {
+		$("#show-order-example").html('Скрыть пример.');
+		$("#example-create-order").show( "slow" );
+	}
+});
+
+$("#show-referral-url").click(function() {
+	if($("#referral-url").is(':visible')) {
+		$("#show-referral-url").html('Показать партнерскую ссылку.');
+		$("#referral-url").hide( "slow" );
+	} else {
+		$("#show-referral-url").html('Скрыть партнерскую ссылку.');
+		$("#referral-url").show( "slow" );
+	}
+});
+
+
+
+
+
+/* --- Контроль ввода цифр --- */
+
+function getChar(event) {        // Кросс-браузерная функция для получения символа из события keypress:
+  if (event.which == null) {                     // IE
+    if (event.keyCode < 32) return null;         // спец. символ
+    return String.fromCharCode(event.keyCode)
+  }
+  if (event.which != 0 && event.charCode != 0) { // все кроме IE
+    if (event.which < 32) return null;           // спец. символ
+    return String.fromCharCode(event.which);     // остальные
+  }
+  return null;                                   // спец. символ
+};
+
+$('.only_number, .bfh-phone').on('keypress', function(e){     // ВВОД ТОЛЬКО ЦИФР
+  e = e || event;
+  if (e.ctrlKey || e.altKey || e.metaKey) return;
+  var chr = getChar(e);
+  // с null надо осторожно в неравенствах,
+  // т.к. например null >= '0' => true
+  // на всякий случай лучше вынести проверку chr == null отдельно
+  if (chr == null) return;
+
+  if (chr < '0' || chr > '9') {
+    return false;
+  }
+});
+
+$('.float_number').on('keypress', function(e){     // ВВОД ЧИСЕЛ ТИПА FLOAT
+  e = e || event;
+  if (e.ctrlKey || e.altKey || e.metaKey) return;
+  var chr = getChar(e);
+  // с null надо осторожно в неравенствах,
+  // т.к. например null >= '0' => true
+  // на всякий случай лучше вынести проверку chr == null отдельно
+  if (chr == null) return;
+
+  if( chr != '.'){
+    if (chr < '0' || chr > '9') {
+      return false;
+    }
+  }
+});
+
+
+$('.float_number').on('keyup', function(){
+  if( $(this).val().match(/\.\d*\./) ){
+    var float_value = parseFloat( $(this).val() ) | 0;
+    $(this).val( float_value );
+  }
+});
+
+/* end --- Контроль ввода цифр --- end */
+
+
+$(document).ready(function(){
+	/*Комиссия на юзера*/
+    $('.pay-radio').click(function(){
+        if($(this).is(':checked') == true) {
+            var usercom = $(this).attr('data-usercom');
+            $('.usercom').text('Комиссия - '+ usercom +'%');
+        }
+    });
+    $('.amount-field').keyup(function(){
+    	if($(this).val() == "") {
+			$(this).parent().find('.total-text').hide();
+    	} else {
+	    	var usercom = parseFloat($(this).parent().find('.usercom').text().replace(/[^.0-9]/gim,''));
+	    	var real_field = $(this).next();
+	    	var amount = parseFloat($(this).val());
+	    	var total = (usercom/100) * amount;
+	    	total = (amount+total).toFixed(2);
+	    	real_field.val(total);
+	    	$(this).parents('form').find('.total-text').html('К оплате: <strong>'+total+'</strong>').show();
+    	}
+    });
+
+    /*Переключение социальных сетей*/
+    $('.category-nav li:nth-child(1) button').addClass('active');
+    $('.category-nav button').click(function(){
+    	var tab_id = $(this).attr('data-tab');
+    	$('.category-nav button').removeClass('active');
+    	$(this).addClass('active');
+    	$('.category-tab').hide();
+    	CategoryTab($(this).attr('data-id'));
+    	$(tab_id).show();
+    });
+
+	function CategoryTab(CategoryName) {
+		$.ajax({
+			type: "POST",
+			url: "category-tab.php",
+			data: 'action=get-category-tab&CategoryName='+CategoryName,
+			cache: false,
+			success: function(data){
+				if(data) {
+					$('#category').html(data);
+					$('#service').html('<option style="display:none;">Выберите категорию.</option>');
+					removeQuantity();
+				}
+			}
+		});
+	}
+
+
+
+
+		  $(".services-tab a").click(function(){
+			var data_name = $(this).attr("data-name");
+			var data_show = $(this).attr("data-show");
+
+			$(".services-tab a").removeClass("active");
+			$(this).addClass("active");
+			if($(this).attr("href") == "#all") {
+				$(".services-item").show();
+				$(this).addClass('active')
+			} else {
+				$(".services-item").each(function(){
+					var tr_name = $(this).attr("data-name");
+					if(tr_name == 5) {
+						if((data_name == 5)){
+							$('.services-item[data-name="5"]').show();
+							$('.services-item[data-name="6"]').show();
+							$('.services-item[data-name="7"]').show();
+							$('.services-item[data-name="8"]').show();
+						} else {
+							$('.services-item[data-name="5"]').hide();
+							$('.services-item[data-name="6"]').hide();
+							$('.services-item[data-name="7"]').hide();
+							$('.services-item[data-name="8"]').hide();
+						}
+					} else {
+						if((tr_name == data_name)) {
+							$(this).show();
+						} else {
+							$(this).hide();
+						}
+					}
+
+				});
+					if(data_show ==	2) {
+						$(".services-item").each(function(){
+							var tr_name = $(this).attr("data-name");
+							if((tr_name == 4)) {
+								$(this).show();
+							} 
+						});
+					}
+
+			}
+	
+			return false;
+		  });
+
+if(screen.width < 1025) {
+    $('.dropdown').click(function(){
+    	if($(this).hasClass('active')) {
+    		$('body').removeClass('ovh');
+    		$(this).removeClass('active');
+    		$('.dropdown-menu').hide();
+    		$('.bdropdown').hide();
+    	} else {
+    		$('body').addClass('ovh');
+    		$(this).addClass('active');
+    		$('.dropdown-menu').show();
+    		$('.bdropdown').show();
+    	}
+    });
+}
+		  if(screen.width < 769) {
+	$('.services-item').click(function(){
+		if($(this).hasClass('active')) {
+			$(this).removeClass('active');
+			$(this).find('.s-item:nth-child(2)').slideUp(300);
+		} else {
+			$(this).addClass('active');
+			$(this).find('.s-item:nth-child(2)').slideDown(300);
+		}
+	});
+
+	$('.price-head').click(function(){
+		if($(this).parent().hasClass('active')) {
+			$(this).parent().removeClass('active');
+			$(this).parent().find('.price-text').hide();
+		} else {
+			$(this).parent().addClass('active');
+			$(this).parent().find('.price-text').show();
+		}
+	});
+		  }
+
+	$('.deposit-name').click(function(){
+		$(this).parents('.deposit-item').find('input').prop('checked', true);
+	});
+
+summRefresh();
+
+
+function summRefresh() {
+		var summ = $('#summ-field').val();
+		if($('.card-item input').is(':checked')) {
+			$('#sumAC').val(summ);
+			$('#summ-field').attr('min', '10');
+		}
+		if($('.yad-item input').is(':checked')) {
+			$('#sumPC').val(summ);
+			$('#summ-field').attr('min', '10');
+		}
+		if($('.free-item input').is(':checked')) {
+			$('#sumMY').val(summ);
+			$('#summ-field').attr('min', '10');
+		}
+}
+
+	$('.deposit-item input').change(function(){
+		summRefresh();
+    	if($('#summ-field').val() == "") {
+			$('#summ-field').parent().find('.for-pay').hide();
+    	} else {
+			if($('.card-item input').is(':checked')) {
+				var usercom = 2.2;
+				var real_field = $('#sumAC');
+			}
+			if($('.yad-item input').is(':checked')) {
+				var usercom = 0.7;
+				var real_field = $('#sumPC');
+			}
+
+	    	var amount = parseFloat($('#summ-field').val());
+	    	var total = (usercom/100) * amount;
+	    	total = (amount+total).toFixed(2);
+
+	    	$('.for-pay b').text(total);
+
+
+			if($('.free-item input').is(':checked')) {
+				var real_field = $('#sumMY');
+	    		real_field.val(amount);
+	    		$('.for-pay').hide();
+			} else {
+				real_field.val(total);
+	    		$('.for-pay').show();
+			}
+	    	
+    	}
+	});
+
+
+	$('#summ-field').keyup(function(){
+		summRefresh();
+    	if($(this).val() == "") {
+			$(this).parent().find('.for-pay').hide();
+    	} else {
+			if($('.card-item input').is(':checked')) {
+				var usercom = 2.2;
+				var real_field = $('#sumAC');
+			}
+			if($('.yad-item input').is(':checked')) {
+				var usercom = 0.7;
+				var real_field = $('#sumPC');
+			}
+
+	    	var amount = parseFloat($(this).val());
+	    	var total = (usercom/100) * amount;
+	    	total = (amount+total).toFixed(2);
+
+	    	$('.for-pay b').text(total);
+
+
+			if($('.free-item input').is(':checked')) {
+				var real_field = $('#sumMY');
+	    		real_field.val(amount);
+	    		$('.for-pay').hide();
+			} else {
+				real_field.val(total);
+	    		$('.for-pay').show();
+			}
+	    	
+    	}
+	});
+
+
+	$(".deposit-form").submit(function(e) {
+		if($('.card-item input').is(':checked')) {
+			$('.form-card button').click();
+		}
+		if($('.yad-item input').is(':checked')) {
+			$('.form-yad button').click();
+		}
+		if($('.free-item input').is(':checked')) {
+			$('.form-free button').click();
+		}
+	    e.preventDefault(); // avoid to execute the actual submit of the form.
+	});
+
+
+});
